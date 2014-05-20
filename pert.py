@@ -12,6 +12,7 @@
 #     task3: optimistic: 7, nominal: 11, pessimistic: 22
 
 from math import pow, sqrt
+import errno
 import argparse
 
 
@@ -82,13 +83,13 @@ def main():
         if len(task_list) < 1:
             print "No tasks specified"
             parser.print_help()
-            exit(255)
+            exit(errno.EINVAL)
         for element in task_list:
             element_params = element.split(',')
             if len(element_params) != 3:
                 print "Invalid number of task attributes"
                 parser.print_help()
-                exit(255)
+                exit(errno.EINVAL)
         return task_list
 
     parser = argparse.ArgumentParser(description='A command line PERT calculator for quick \'n dirty estimates')
@@ -105,6 +106,7 @@ def main():
         estimation.add_task(t)
 
     estimation.print_report()
+    exit(0)
 
 
 if __name__ == '__main__':
