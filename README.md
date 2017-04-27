@@ -1,7 +1,7 @@
 pert-calc
 =========
 
-A command line utility for quick 'n dirty PERT estimates
+A command line utility for quick 'n dirty PERT estimates. Depends on python 2
 
 Usage:
 
